@@ -26,7 +26,6 @@ const requestHandler = (req, res) => {
     return req.on('end', () => {
       const parseBody = Buffer.concat(body).toString();
       const username = parseBody.split('=')[1];
-      console.log(username);
       fs.writeFile('users.txt', username, (err) => {
         res.writeHead(302, { location: '/' });
         // code below is same as above
